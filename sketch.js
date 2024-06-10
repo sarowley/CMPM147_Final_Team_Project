@@ -154,11 +154,11 @@ function setup() {
   personAHeight = floor(random(0, 30));
 
   //randomize the num of shapes
-  personAnumShapes = floor(random(1, 1000));
+  personAnumShapes = floor(random(1, 5000));
 
   //randomize shape position
-  personAshapeX = floor(random(150, 200));
-  personAshapeY = floor(random(150, 200));
+  personAshapeX = floor(random(150, 600));
+  personAshapeY = floor(random(150, 600));
 
   //randomize the first gene
   //geneMakeUp: "shape of head"-"shape of body"-"color of head1"-"color of head2"-"color of head3"-"width of body"-"height of body"
@@ -221,11 +221,11 @@ function setup() {
   personBHeight = floor(random(0, 30));
 
   //randomize the num of shapes
-  personBnumShapes = floor(random(1, 1000));
+  personBnumShapes = floor(random(1, 5000));
 
   //randomize shape position
-  personBshapeX = floor(random(150, 200));
-  personBshapeY = floor(random(150, 200));
+  personBshapeX = floor(random(150, 600));
+  personBshapeY = floor(random(150, 600));
 
   //randomize the first gene
   //geneMakeUp: "shape of head"-"shape of body"-"color of head1"-"color of head2"-"color of head3"-"width of body"-"height of body"
