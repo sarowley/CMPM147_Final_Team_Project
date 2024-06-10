@@ -1,0 +1,64 @@
+/* style.css */
+
+/* Set the canvas element to be the full size of the container */
+canvas {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: relative;
+}
+header.header h1 {
+    position: absolute;
+    left: 20%;
+  }
+
+/* Center the canvas element on the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(94, 185, 106);
+}
+
+#canvas-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    z-index: 2;
+}
+
+/* square style */
+.square {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+    opacity: 1;
+}
+/* Animation for the growth of the squares */
+@keyframes spawnAndGrow {     
+    0% {
+        transform: scale(1);    
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* GUI style */
+button, input {
+    z-index: 2;
+    position: relative;
+}
+
+.text, .text * {
+    z-index: 2;
+    position: relative;
+}

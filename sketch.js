@@ -67,28 +67,33 @@ let personCshapeX, personCshapeY;
 //does once on start
 function setup() {
   //make canvas
-  createCanvas(canvasX, canvasY);
+  let canvas = createCanvas(canvasX, canvasY);
+  canvas.position(40,70)
+  //create Squares amount
+  for (let i = 0; i < 100; i++) {
+    createSquare();
+  }
   //make update button
   updateButton = createButton("Update");
-  updateButton.position(300, 50);
+  updateButton.position(300, 80);
   updateButton.mousePressed(update);
   //make restart button
   restartButton = createButton("Restart");
-  restartButton.position(355, 50);
+  restartButton.position(355, 80);
   restartButton.mousePressed(restart);
   //geneA textbox
   geneAtextBox = createInput();
-  geneAtextBox.position(20, 300);
+  geneAtextBox.position(50, 300);
   //make change gene button
   changeGeneAButton = createButton("GeneA");
-  changeGeneAButton.position(200, 300);
+  changeGeneAButton.position(220, 300);
   changeGeneAButton.mousePressed(changeGeneA);
   //patternA textbox
   patternAtextBox = createInput();
-  patternAtextBox.position(20, 330);
+  patternAtextBox.position(50, 330);
   //make change pattern button
   changePatternAButton = createButton("PatternA");
-  changePatternAButton.position(200, 330);
+  changePatternAButton.position(220, 330);
   changePatternAButton.mousePressed(changePatternA);
 
   //geneB textbox
@@ -105,6 +110,35 @@ function setup() {
   changePatternBButton = createButton("PatternB");
   changePatternBButton.position(600, 330);
   changePatternBButton.mousePressed(changePatternB);
+
+  //-------------------------------------------------------
+  //---------Spawn Shapes and Squares---------------------
+  //-------------------------------------------------------
+  //spawns within the window height/Width
+  function createSquare() {
+    const squareShapes = document.createElement("div");
+    squareShapes.classList.add("square");
+    squareShapes.style.top = `${Math.random() * window.innerHeight}px`;
+    squareShapes.style.left = `${Math.random() * window.innerWidth}px`;
+    document.body.appendChild(squareShapes);
+  }
+
+  // starts the growth and disaperance of the squares
+  function setGrowth() {
+    const shapeGrowth = document.querySelectorAll(".square");
+    shapeGrowth.forEach((squareShapes) => {
+      const randomDuration = Math.random() * 3 + 5; // lifespan duration
+      squareShapes.style.animation = `spawnAndGrow ${randomDuration}s linear forwards`;
+
+      squareShapes.addEventListener("animationend", () => {
+        squareShapes.style.top = `${Math.random() * window.innerHeight}px`;
+        squareShapes.style.left = `${Math.random() * window.innerWidth}px`;
+        squareShapes.style.animation = "none"; // Reset growth animation
+      });
+    });
+  }
+
+  setInterval(setGrowth, 1000);
 
   //button to create childd
   createChildButton = createButton("Create Child");
