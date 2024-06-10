@@ -557,14 +557,12 @@ function makeChildPattern(pattern1, pattern2) {
   //chance to mutate
   if (random(0, 100) < 10) {
     if (first == 1) {
-      if (random(0, 100) < 30) {
-        first = 2;
-      } else if (random(0, 100) > 30 && random(0, 100) < 60) {
-        first = 3;
-      }
+      first = 2;
     } else if (first == 2) {
       first = 3;
-    } else if (first == 4) {
+    } else if (first == 3) {
+      first = 4;
+    } else if ((first = 4)) {
       first = 1;
     }
   }
